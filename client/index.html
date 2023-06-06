@@ -4,11 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"
+    />
     <title>Blog-WebApp</title>
   </head>
   <body>
     <section>
-      <h1>My Blog</h1>
+      <h1 class="text-xl font-bold">My Blog</h1>
       <form id="blogForm">
         <input type="text" id="titleInput" placeholder="Enter title" required />
         <textarea
@@ -16,10 +24,19 @@
           placeholder="Enter content"
           required
         ></textarea>
-        <button type="submit">Add Blog</button>
+        <button
+          type="submit"
+          class="middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          data-ripple-light="true"
+        >
+          Add Blog
+        </button>
       </form>
+      <div id="newlyAddedBLog"></div>
       <div id="blogList"></div>
     </section>
     <script src="./JavaScript.js"></script>
+    <!-- script -->
+    <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/script-name.js"></script>
   </body>
 </html>

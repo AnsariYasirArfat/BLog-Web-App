@@ -29,6 +29,7 @@ function createBlogDiv(blog) {
 }
 
 // Adding blog
+const newlyAddedBLog = document.getElementById("newlyAddedBLog");
 const blogForm = document.getElementById("blogForm");
 const titleInput = document.getElementById("titleInput");
 const contentInput = document.getElementById("contentInput");
@@ -45,8 +46,8 @@ blogForm.addEventListener("submit", (e) => {
       body: content,
     };
 
-    const div = createBlogDiv(newBlog);
-    blogList.appendChild(div);
+    const newBLog = createBlogDiv(newBlog);
+    newlyAddedBLog.appendChild(newBLog);
   }
 
   titleInput.value = "";
