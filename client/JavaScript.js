@@ -5,8 +5,8 @@ fetch("https://jsonplaceholder.typicode.com/posts")
   .then((response) => response.json())
   .then((data) => {
     data.forEach((blog) => {
-      const div = createBlogDiv(blog);
-      blogList.appendChild(div);
+      const blogcard = createBlogDiv(blog);
+      blogList.appendChild(blogcard);
     });
   })
   .catch((error) => {
@@ -17,11 +17,22 @@ fetch("https://jsonplaceholder.typicode.com/posts")
 function createBlogDiv(blog) {
   const div = document.createElement("div");
   div.innerHTML = `
-    <h3>${blog.title}</h3>
-    <p>${blog.body}</p>
-    <button class="delete-btn" data-id="${blog.id}">Delete</button>
+    <h3 class="text-lg font-bold text-sky-950 p-1">${blog.title}</h3>
+    <p class="h-44 bg-sky-200 rounded-md p-2  overflow-hidden hover:overflow-y-auto scroll">${blog.body}</p>
+    <button class="delete-btn bg-red-400 hover:bg-red-500 text-sky-100 py-1 px-2 rounded text-sm font-semibold mt-2 mx-auto" data-id="${blog.id}">Delete</button>
   `;
-
+  div.classList.add(
+    "bg-sky-100",
+    "hover:shadow-sky-950",
+    "p-4",
+    "m-4",
+    "rounded-lg",
+    "shadow-md",
+    "hover:shadow-xl",
+    "flex",
+    "flex-col",
+    "justify-between"
+  );
   const deleteButton = div.querySelector(".delete-btn");
   deleteButton.addEventListener("click", deleteBlog);
 

@@ -6,8 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
     <title>Blog-WebApp</title>
+    <style>
+      /* Hide the scrollbar for the entire page */
+      body::-webkit-scrollbar {
+        width: 0.5rem; /* Set the width of the scrollbar */
+        background-color: #0369a1; /* Set the background color of the scrollbar track */
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background-color: #7dd3fc; /* Set the background color of the scrollbar thumb */
+      }
+
+      body::-webkit-scrollbar-track {
+        background-color: #0369a1; /* Set the background color of the scrollbar track */
+      }
+
+      /* Hide the scrollbar for a specific element */
+      .scroll::-webkit-scrollbar {
+        width: 0.4rem;
+        background-color: #0369a1;
+      }
+
+      .scroll::-webkit-scrollbar-thumb {
+        background-color: #7dd3fc;
+      }
+
+      .scroll::-webkit-scrollbar-track {
+        background-color: #0369a1;
+      }
+    </style>
   </head>
   <body>
     <nav class="p-2">
@@ -20,6 +48,7 @@
         <h1 class="text-2xl font-bold ps-2 text-sky-700">Blogify</h1>
       </div>
     </nav>
+    <!-- Section 1: Adding Blog -->
     <section>
       <form
         id="blogForm"
@@ -35,6 +64,7 @@
             >Title</label
           >
           <input
+            maxlength="50"
             type="text"
             id="titleInput"
             placeholder="Enter title"
@@ -52,7 +82,7 @@
             id="contentInput"
             placeholder="Enter content"
             required
-            class="w-full px-4 py-2 rounded-md bg-sky-50 border border-sky-300 h-32 resize-none focus:outline-none focus:border-sky-500"
+            class="w-full px-4 py-2 rounded-md bg-sky-50 border border-sky-300 h-32 resize-none focus:outline-none focus:border-sky-500 scroll"
           ></textarea>
         </div>
         <div class="flex justify-center">
@@ -65,8 +95,22 @@
         </div>
       </form>
     </section>
-    <div id="newlyAddedBLog" class="bg-sky-500"></div>
-    <div id="blogList"></div>
+
+    <!-- Section 2: Newly Added Blogs -->
+    <section class="m-10 border border-sky-300 rounded-lg">
+      <h1 class="text-2xl font-bold text-center text-sky-800 my-4">
+        Newly Added Blogs
+      </h1>
+      <div id="newlyAddedBLog" class="grid gap-4 grid-cols-2"></div>
+    </section>
+
+    <!-- Section 3: Blogs From API -->
+    <section class="m-10 border border-sky-300 rounded-lg">
+      <h1 class="text-2xl font-bold text-center text-sky-800 my-4">
+        All Blogs
+      </h1>
+      <div id="blogList" class="grid gap-4 grid-cols-2"></div>
+    </section>
 
     <!-- Script For DOM Manipulation & API Call -->
     <script src="./JavaScript.js"></script>
