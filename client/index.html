@@ -9,9 +9,16 @@
   <body>
     <section>
       <h1>My Blog</h1>
-      <div>
-        <ul id="blogList"></ul>
-      </div>
+      <form id="blogForm">
+        <input type="text" id="titleInput" placeholder="Enter title" required />
+        <textarea
+          id="contentInput"
+          placeholder="Enter content"
+          required
+        ></textarea>
+        <button type="submit">Add Blog</button>
+      </form>
+      <div id="blogList"></div>
     </section>
     <script src="./JavaScript.js"></script>
   </body>
